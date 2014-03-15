@@ -2,7 +2,7 @@
   "name": "peerflix",
   "version": "0.2.2",
   "license": "MIT",
-  "repository": "git://github.com/mafintosh/peerflix.git",
+  "repository": "git://github.com/adammw/peerflix.git",
   "bin": {
     "peerflix": "./app.js"
   },
@@ -14,7 +14,7 @@
     "numeral": "^1.5.3",
     "pump": "^0.3.1",
     "optimist": "^0.6.1",
-    "peerflix-engine": "^0.2.3",
+    "peerflix-engine": "git://github.com/adammw/peerflix-engine.git",
     "read-torrent": "^0.2.0"
   }
 }

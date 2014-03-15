@@ -15,7 +15,7 @@ Simply start it with a torrent file
 `peerflix` will print a terminal interface. this first line contains a address to a http server.
 Using `--vlc` will open the file in vlc when it's ready to stream.
 
-![peerflix](https://raw.github.com/mafintosh/peerflix/master/screenshot.png)
+![peerflix](https://raw.github.com/adammw/peerflix/master/screenshot.png)
 
 Simply open this address in vlc or similar to start viewing the file. If the torrent contains multiple files `peerflix` will choose the biggest one.
 
@@ -41,7 +41,7 @@ engine.server.listen(8888);
 The above example will start a http server that listens on port 8888 and serves the files inside the torrent as http requests.
 A request to `http://localhost:8888` will serve the index file (which defaults to the biggest file).
 
-For more information see [peerflix-engine](https://github.com/mafintosh/peerflix-engine)
+For more information see [peerflix-engine](https://github.com/adammw/peerflix-engine)
 
 ## License
 

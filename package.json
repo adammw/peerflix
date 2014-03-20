@@ -1,6 +1,6 @@
 {
   "name": "peerflix",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "license": "MIT",
   "repository": "git://github.com/adammw/peerflix.git",
   "bin": {
@@ -14,7 +14,8 @@
     "numeral": "^1.5.3",
     "pump": "^0.3.1",
     "optimist": "^0.6.1",
-    "peerflix-engine": "git://github.com/adammw/peerflix-engine.git",
-    "read-torrent": "^0.2.0"
+    "torrent-stream": "git://github.com/adammw/torrent-stream.git",
+    "read-torrent": "^0.2.0",
+    "windows-no-runnable": "~0.0.6"
   }
 }

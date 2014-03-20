@@ -1,4 +1,4 @@
-var engine = require('peerflix-engine');
+var engine = require('torrent-stream');
 var http = require('http');
 var rangeParser = require('range-parser');
 var url = require('url');
@@ -8,16 +8,21 @@ var pump = require('pump');
 var createServer = function(e, index) {
 	var server = http.createServer();
 
-	if (typeof index !== 'number') {
-		index = e.files.reduce(function(a, b) {
-			return a.length > b.length ? a : b;
-		});
-		index = e.files.indexOf(index);
-	}
+	var onready = function() {
+		if (typeof index !== 'number') {
+			index = e.files.reduce(function(a, b) {
+				return a.length > b.length ? a : b;
+			});
+			index = e.files.indexOf(index);
+		}
 
-	e.files[index].select();
+		e.files[index].select();
+		server.index = e.files[index];
+	};
 
-	server.index = e.files[index];
+	if (e.torrent) onready();
+	else e.on('ready', onready);
+
 	server.on('request', function(request, response) {
 		var u = url.parse(request.url);
 
@@ -59,6 +64,8 @@ var createServer = function(e, index) {
 module.exports = function(torrent, opts) {
 	if (!opts) opts = {};
 	var e = engine(torrent, opts);
-	e.server = createServer(e, opts.index);
+	if (!opts.list) {
+		e.server = createServer(e, opts.index);
+	};
 	return e;
 };
